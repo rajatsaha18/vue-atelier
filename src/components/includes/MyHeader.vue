@@ -45,9 +45,11 @@
                 <section class="w3l-header-4 sec-part-4">
                     <div class="container">
                         <nav class="navbar navbar-expand-lg navbar-light p-lg-0">
-                            <h1> <a class="navbar-brand" href="index.html">
-                                    <span class="capw3">C</span>orner <span class="subcap">Store</span>
-                                </a></h1>
+                            <h1> <router-link :to="{name:'home'}" class="navbar-brand">
+                                <span class="capw3">C</span>orner <span class="subcap">Store</span>
+                                </router-link>
+                                    
+                                </h1>
                             <ul class="navbar-nav mx-lg-auto mt-lg-0 mt-3">
                                 <li class="nav-item active">
                                     <a class="nav-link" href="events.html">Events</a>
