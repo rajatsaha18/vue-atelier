@@ -10,9 +10,9 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav nav_1">
-                            <li class="nav-item dropdown">
+                            <li class="nav-item dropdown" v-for="(category, key) in categories" :key="key">
                                 <router-link :to="{name: 'category'}" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                                    Branded Foods <span class="fa fa-angle-down"></span>
+                                    {{ category.name }} <span class="fa fa-angle-down"></span>
                                 </router-link>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li><a href="" class="dropdown-item">One</a></li>
@@ -72,8 +72,26 @@
     </div>
 </template>
 <script>
+import axios from 'axios'
 export default {
-    name: "NavSection"
+    name: "NavSection",
+    data(){
+        return{
+            categories:[],
+        }
+    },
+    created(){
+        this.getAllCategory();
+
+    },
+    methods:{
+        getAllCategory()
+        {
+            axios.get('http://localhost/Atelier-Kart/public/api/all-category').then((response)=>{
+                this.categories = response.data;
+            })
+        }
+    }
 }
 </script>
 
