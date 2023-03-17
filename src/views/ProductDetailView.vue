@@ -2,15 +2,14 @@
 	<div class="product-detail">
 		<BreadcrumbSection/>
 		<!-- //products-breadcrumb -->
+		
 		<!-- banner -->
 		<div class="banner">
 			<div class="w3l_banner_nav_left">
-				
+				<NavDetailSection/>
 			</div>
 			<div class="w3l_banner_nav_right">
-				<div class="w3l_banner_nav_right_banner3">
-					<h3>Best Deals For New Products<span class="blink_me"></span></h3>
-				</div>
+				<DetailBestDeal/>
 				<div class="agileinfo_single">
 					<h5>charminar pulao basmati rice 5 kg</h5>
 					<div class="row">
@@ -74,10 +73,12 @@
 
 <script>
 import BreadcrumbSection from '@/components/product-detail/BreadcrumbSection.vue';
+import NavDetailSection from '@/components/product-detail/NavDetailSection.vue';
+import DetailBestDeal from '@/components/product-detail/DetailBestDeal.vue';
 
 
 export default {
 	name:"ProductDetailView",
-	components:{BreadcrumbSection},
+	components:{BreadcrumbSection, NavDetailSection, DetailBestDeal},
 }
 </script>
