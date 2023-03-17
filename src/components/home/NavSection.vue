@@ -11,15 +11,15 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav nav_1">
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="products.html" data-toggle="dropdown">
+                                <router-link :to="{name: 'category'}" class="nav-link dropdown-toggle" data-toggle="dropdown">
                                     Branded Foods <span class="fa fa-angle-down"></span>
-                                </a>
+                                </router-link>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li><a href="" class="dropdown-item">One</a></li>
                                     <li><a href="" class="dropdown-item">Two</a></li>
                                 </ul>
                             </li>
-                            <li class="nav-item"><router-link :to="{name: 'category'}" class="nav-link">Households</router-link></li>
+                            <!-- <li class="nav-item"><router-link :to="{name: 'category'}" class="nav-link">Households</router-link></li> -->
                             
                         </ul>
                     </div>

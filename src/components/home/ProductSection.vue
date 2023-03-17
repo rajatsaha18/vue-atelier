@@ -12,8 +12,8 @@
                                     <figure>
                                         <div class="snipcart-item block">
                                             <div class="snipcart-thumb">
-                                                <a href="single.html"><img title=" " alt=" " src="/images/1.png"
-                                                        class="img-fluid" /></a>
+                                                <router-link :to="{name:'detail'}"><img title=" " alt=" " src="/images/1.png"
+                                                        class="img-fluid" /></router-link>
                                                 <p>Fortune sunflower oil</p>
                                                 <h4>$7.99 <span>$10.00</span></h4>
                                             </div>
