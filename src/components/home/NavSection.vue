@@ -11,14 +11,15 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav nav_1">
                             <li class="nav-item dropdown" v-for="(category, key) in categories" :key="key">
-                                <router-link :to="{name: 'category'}" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                                    {{ category.name }} <span class="fa fa-angle-down"></span>
-                                </router-link>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a href="" class="dropdown-item">One</a></li>
-                                    <li><a href="" class="dropdown-item">Two</a></li>
-                                </ul>
-                            </li>
+							<router-link :to="{name:'category', params:{id: category.category.id} }" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								{{ category.category.name }} <span class="fa fa-angle-down"></span>
+							</router-link>
+							<div v-for="(sub_category, key1) in category.sub_category" :key="key1" class="dropdown-menu w3ls_vegetables_menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item drop-text" href="frozen.html">{{ sub_category.name }}</a>
+
+							</div>
+						</li>
                             <!-- <li class="nav-item"><router-link :to="{name: 'category'}" class="nav-link">Households</router-link></li> -->
                             
                         </ul>

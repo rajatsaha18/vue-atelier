@@ -4,7 +4,7 @@
             <div class="container">
                 <h3>Your Daily Staples</h3>
                 <div class="row agile_top_brands_grids">
-                    <div class="col-lg-3 col-sm-6 top_brand_left">
+                    <div v-for="(product, key) in products" :key="key" class="col-lg-3 col-sm-6 top_brand_left mb-3">
                         <div class="hover14 column">
                             <div class="agile_top_brand_left_grid">
                                 <div class="tag"><img src="/images/tag.png" alt=" " class="img-fluid" /></div>
@@ -12,10 +12,10 @@
                                     <figure>
                                         <div class="snipcart-item block">
                                             <div class="snipcart-thumb">
-                                                <router-link :to="{name:'detail'}"><img title=" " alt=" " src="/images/1.png"
-                                                        class="img-fluid" /></router-link>
-                                                <p>Fortune sunflower oil</p>
-                                                <h4>$7.99 <span>$10.00</span></h4>
+                                                <router-link :to="{ name: 'detail' }"><img title=" " alt=" "
+                                                        :src="product.image" class="img-fluid img-height" /></router-link>
+                                                <p>{{ product.name }}</p>
+                                                <h4>TK.{{ product.selling_price }} <span>TK. {{ product.regular_price }}}</span></h4>
                                             </div>
                                             <div class="snipcart-details top_brand_home_details">
                                                 <form
@@ -45,127 +45,37 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-sm-6 top_brand_left">
-                        <div class="hover14 column">
-                            <div class="agile_top_brand_left_grid">
-                                <div class="agile_top_brand_left_grid1">
-                                    <figure>
-                                        <div class="snipcart-item block">
-                                            <div class="snipcart-thumb">
-                                                <a href="single.html"><img title=" " alt=" " src="/images/3.png" /></a>
-                                                <p>basmati rise (5 Kg)</p>
-                                                <h4>$11.99 <span>$15.00</span></h4>
-                                            </div>
-                                            <div class="snipcart-details top_brand_home_details">
-                                                <form action="#" method="post">
-                                                    <fieldset>
-                                                        <input type="hidden" name="cmd" value="_cart" />
-                                                        <input type="hidden" name="add" value="1" />
-                                                        <input type="hidden" name="business" value=" " />
-                                                        <input type="hidden" name="item_name" value="basmati rise" />
-                                                        <input type="hidden" name="amount" value="11.99" />
-                                                        <input type="hidden" name="discount_amount" value="1.00" />
-                                                        <input type="hidden" name="currency_code" value="USD" />
-                                                        <input type="hidden" name="return" value=" " />
-                                                        <input type="hidden" name="cancel_return" value=" " />
-                                                        <input type="submit" name="submit" value="Add to cart"
-                                                            class="button" />
-                                                    </fieldset>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </figure>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 top_brand_left ">
-                        <div class="hover14 column">
-                            <div class="agile_top_brand_left_grid">
-                                <div class="agile_top_brand_left_grid_pos">
-                                    <img src="/images/offer.png" alt=" " class="img-fluid" />
-                                </div>
-                                <div class="agile_top_brand_left_grid1">
-                                    <figure>
-                                        <div class="snipcart-item block">
-                                            <div class="snipcart-thumb">
-                                                <a href="single.html"><img src="/images/2.png" alt=" "
-                                                        class="img-fluid" /></a>
-                                                <p>Soft drink (2 Ltr)</p>
-                                                <h4>$8.00 <span>$10.00</span></h4>
-                                            </div>
-                                            <div class="snipcart-details top_brand_home_details">
-                                                <form action="#" method="post">
-                                                    <fieldset>
-                                                        <input type="hidden" name="cmd" value="_cart" />
-                                                        <input type="hidden" name="add" value="1" />
-                                                        <input type="hidden" name="business" value=" " />
-                                                        <input type="hidden" name="item_name" value="Pepsi soft drink" />
-                                                        <input type="hidden" name="amount" value="8.00" />
-                                                        <input type="hidden" name="discount_amount" value="1.00" />
-                                                        <input type="hidden" name="currency_code" value="USD" />
-                                                        <input type="hidden" name="return" value=" " />
-                                                        <input type="hidden" name="cancel_return" value=" " />
-                                                        <input type="submit" name="submit" value="Add to cart"
-                                                            class="button" />
-                                                    </fieldset>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </figure>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 top_brand_left">
-                        <div class="hover14 column">
-                            <div class="agile_top_brand_left_grid">
-                                <div class="agile_top_brand_left_grid_pos">
-                                    <img src="/images/offer.png" alt=" " class="img-fluid" />
-                                </div>
-                                <div class="agile_top_brand_left_grid1">
-                                    <figure>
-                                        <div class="snipcart-item block">
-                                            <div class="snipcart-thumb">
-                                                <a href="single.html"><img src="/images/4.png" alt=" "
-                                                        class="img-fluid" /></a>
-                                                <p>dogs food (4 Kg)</p>
-                                                <h4>$9.00 <span>$11.00</span></h4>
-                                            </div>
-                                            <div class="snipcart-details top_brand_home_details">
-                                                <form action="#" method="post">
-                                                    <fieldset>
-                                                        <input type="hidden" name="cmd" value="_cart" />
-                                                        <input type="hidden" name="add" value="1" />
-                                                        <input type="hidden" name="business" value=" " />
-                                                        <input type="hidden" name="item_name" value="dogs food" />
-                                                        <input type="hidden" name="amount" value="9.00" />
-                                                        <input type="hidden" name="discount_amount" value="1.00" />
-                                                        <input type="hidden" name="currency_code" value="USD" />
-                                                        <input type="hidden" name="return" value=" " />
-                                                        <input type="hidden" name="cancel_return" value=" " />
-                                                        <input type="submit" name="submit" value="Add to cart"
-                                                            class="button" />
-                                                    </fieldset>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </figure>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="clearfix"> </div>
                 </div>
-                <div class="clearfix"> </div>
             </div>
         </div>
     </div>
-</div>
 </template>
 
 <script>
+import axios from 'axios';
 export default {
-    name: "ProductSection"
+    name: "ProductSection",
+    data(){
+        return{
+            products:[]
+        }
+    },
+    created(){
+        this.getAllProduct();
+    },
+    methods:{
+        getAllProduct(){
+            axios.get('http://localhost/Atelier-Kart/public/api/latest-products').then((response)=>{
+                this.products = response.data;
+            })
+        }
+    }
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.img-height{
+    height: 120px;
+}
+</style>

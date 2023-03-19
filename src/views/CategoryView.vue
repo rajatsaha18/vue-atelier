@@ -12,12 +12,12 @@
         <!-- banner -->
         <div class="banner">
             <div class="w3l_banner_nav_left">
-                <NavSection/>
+                <NavCategorySection/>
             </div>
             <div class="w3l_banner_nav_right">
                 <BestDealSection/>
-                <div class="container">
-                    <AddSection/>
+                <div class="container mt-5">
+                    
                     <TopProductSection/>
                     
                 </div>
@@ -27,13 +27,13 @@
 </template>
 
 <script>
-import NavSection from '@/components/category/NavSection.vue';
+import NavCategorySection from '@/components/category/NavCategorySection.vue';
 import BestDealSection from '@/components/category/BestDealSection.vue';
-import AddSection from '@/components/category/AddSection.vue';
+
 import TopProductSection from '@/components/category/TopProductSection.vue'
 export default {
     name: "CategoryView",
-    components: {NavSection, BestDealSection, AddSection, TopProductSection},
+    components: {NavCategorySection, BestDealSection, TopProductSection},
 }
 </script>
 
