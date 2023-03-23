@@ -1,10 +1,10 @@
 <template>
     <div class="description-section">
         <div class="agileinfo_single">
-            <h5>charminar pulao basmati rice 5 kg</h5>
+            <h5>{{ product.name }}</h5>
             <div class="row">
                 <div class="col-md-4 agileinfo_single_left">
-                    <img id="example" src="/images/76.png" alt=" " class="img-fluid" />
+                    <img id="example" :src="product.image" alt=" " class="img-fluid" />
                 </div>
                 <div class="col-md-8 agileinfo_single_right">
                     <div class="rating1">
@@ -30,23 +30,21 @@
                     </div>
                     <div class="snipcart-item block">
                         <div class="snipcart-thumb agileinfo_single_right_snipcart">
-                            <h4>$21.00 <span>$25.00</span></h4>
+                            <h4>TK.{{ product.selling_price }} <span>TK.{{ product.regular_price }}</span></h4>
                         </div>
                         <div class="snipcart-details agileinfo_single_right_details">
-                            <form action="#" method="post">
-                                <fieldset>
-                                    <input type="hidden" name="cmd" value="_cart" />
-                                    <input type="hidden" name="add" value="1" />
-                                    <input type="hidden" name="business" value=" " />
-                                    <input type="hidden" name="item_name" value="pulao basmati rice" />
-                                    <input type="hidden" name="amount" value="21.00" />
-                                    <input type="hidden" name="discount_amount" value="1.00" />
-                                    <input type="hidden" name="currency_code" value="USD" />
-                                    <input type="hidden" name="return" value=" " />
-                                    <input type="hidden" name="cancel_return" value=" " />
-                                    <input type="submit" name="submit" value="Add to cart" class="button" />
-                                </fieldset>
-                            </form>
+                            <!-- <form action="" method="">
+                            </form> -->
+                            <div class="col-lg-12 col-md-8">
+                                <div class="form-group quantity">
+                                    <label for="color">Quantity</label>
+                                    <input type="number" class="form-control" v-model="qty" min="1" />
+
+                                </div>
+                            </div>
+                            <fieldset>
+                                <input type="submit" name="submit" @click="addToCart" value="Add to cart" class="button" />
+                            </fieldset>
                         </div>
                     </div>
                 </div>
@@ -56,8 +54,39 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
-    name:"DescriptionSection",
+    name: "DescriptionSection",
+    data() {
+        return {
+            id: this.$route.params.id,
+            product: {},
+            qty:1,
+        }
+    },
+    created() {
+        this.getProductById();
+    },
+    methods: {
+        getProductById() {
+            axios.get('http://localhost/Atelier-Kart/public/api/product-by-id/' + this.id).then((response) => {
+                this.product = response.data;
+            })
+
+        },
+        addToCart() {
+            var product = {id: this.product.id,name: this.product.name,price: this.product.selling_price,image: this.product.image,qty: this.qty, total:this.product.selling_price * this.qty}
+            var cartProduct =this.$store.getters.getProducts;
+            var check = cartProduct.find(item => item.id == this.product.id);
+            if(check){
+                this.$store.commit('updateCart', {id: this.product.id, qty: check.qty + this.qty});
+            }
+            else{
+                this.$store.commit('addToCart',product);
+            }
+            this.$router.push('/show-cart');
+        }
+    }
 }
 </script>
 <style scoped></style>

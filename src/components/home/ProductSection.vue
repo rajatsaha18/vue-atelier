@@ -12,7 +12,7 @@
                                     <figure>
                                         <div class="snipcart-item block">
                                             <div class="snipcart-thumb">
-                                                <router-link :to="{ name: 'detail' }"><img title=" " alt=" "
+                                                <router-link :to="{ name: 'detail', params:{id: product.id} }"><img title=" " alt=" "
                                                         :src="product.image" class="img-fluid img-height" /></router-link>
                                                 <p>{{ product.name }}</p>
                                                 <h4>TK.{{ product.selling_price }} <span>TK. {{ product.regular_price }}}</span></h4>

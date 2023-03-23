@@ -9,13 +9,13 @@
                         <div class="hover14 column">
                             <div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
                                 <div class="agile_top_brand_left_grid_pos">
-                                    <img src="/image/img5.png" alt=" " class="img-fluid" />
+                                    <img src="/image/img5.png" alt=" " class="img-fluid"/>
                                 </div>
                                 <div class="agile_top_brand_left_grid1">
                                     <figure>
                                         <div class="snipcart-item block">
                                             <div class="snipcart-thumb">
-                                                <router-link :to="{name:'detail'}"><img :src="product.image" alt=" "
+                                                <router-link :to="{name:'detail', params:{id: product.id} }"><img :src="product.image" alt=" "
                                                         class="img-fluid img-height" /></router-link>
                                                 <p>{{ product.name }}</p>
                                                 <h4>TK.{{ product.selling_price }} <span>TK.{{ product.regular_price }}</span></h4>

@@ -13,13 +13,12 @@
             </div>
             <div class="w3l_header_right w3-two-three-grids">
                 <div class="product_list_header mx-lg-4">
-                    <form action="#" method="post" class="last">
-                        <fieldset>
-                            <input type="hidden" name="cmd" value="_cart" />
-                            <input type="hidden" name="display" value="1" />
-                            <input type="submit" name="submit" value="View your cart" class="button" />
-                        </fieldset>
-                    </form>
+                    <div class="button mt-2">
+                        <router-link :to="{name:'cart'}" class="btn btn-primary">
+                            View Cart <i class="fa-solid fa-cart-shopping"></i>
+
+                        </router-link>
+                    </div>
                 </div>
                 <ul>
                     <li class="dropdown profile_details_drop">
@@ -45,11 +44,11 @@
                 <section class="w3l-header-4 sec-part-4">
                     <div class="container">
                         <nav class="navbar navbar-expand-lg navbar-light p-lg-0">
-                            <h1> <router-link :to="{name:'home'}" class="navbar-brand">
-                                <span class="capw3">C</span>orner <span class="subcap">Store</span>
+                            <h1> <router-link :to="{ name: 'home' }" class="navbar-brand">
+                                    <span class="capw3">C</span>orner <span class="subcap">Store</span>
                                 </router-link>
-                                    
-                                </h1>
+
+                            </h1>
                             <ul class="navbar-nav mx-lg-auto mt-lg-0 mt-3">
                                 <li class="nav-item active">
                                     <a class="nav-link" href="events.html">Events</a>
@@ -100,7 +99,7 @@
             <!--//header-->
         </div>
         <!--//navbar-->
-        
+
 
         <!--//end-navbar-->
 
